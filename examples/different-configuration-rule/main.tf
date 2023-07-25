@@ -44,3 +44,5 @@ module "security_group" {
     }
   ]
 }
+
+provider "aws" {}
