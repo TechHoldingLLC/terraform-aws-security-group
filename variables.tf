@@ -7,7 +7,14 @@ variable "description" {
 variable "egress" {
   description = "Egress rules"
   type        = list(any)
-  default     = []
+  default = [
+    {
+      protocol    = -1
+      from_port   = 0
+      to_port     = 0
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+  ]
 }
 
 variable "ingress" {
