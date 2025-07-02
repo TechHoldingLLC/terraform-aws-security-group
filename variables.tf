@@ -6,7 +6,7 @@ variable "description" {
 
 variable "egress" {
   description = "Egress rules"
-  type        = list(any)
+  type        = any
   default = [
     {
       protocol    = -1
