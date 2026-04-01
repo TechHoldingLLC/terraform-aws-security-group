@@ -26,6 +26,7 @@ resource "aws_security_group_rule" "egress" {
   ipv6_cidr_blocks         = try(lookup(each.value, "ipv6_cidr_blocks", "") == "" ? null : lookup(each.value, "ipv6_cidr_blocks"))
   self                     = try(lookup(each.value, "self"), null)
   description              = lookup(each.value, "description", "no description added")
+  prefix_list_ids          = lookup(each.value, "prefix_list_ids", null)
 }
 
 resource "aws_security_group_rule" "ingress" {
@@ -40,4 +41,5 @@ resource "aws_security_group_rule" "ingress" {
   ipv6_cidr_blocks         = try(lookup(each.value, "ipv6_cidr_blocks", "") == "" ? null : lookup(each.value, "ipv6_cidr_blocks"))
   self                     = try(lookup(each.value, "self"), null)
   description              = lookup(each.value, "description", "no description added")
+  prefix_list_ids          = lookup(each.value, "prefix_list_ids", null)
 }
